@@ -1,3 +1,4 @@
+import { confirmDeletion } from "./confirmation";
 import EditorModal, { type Editor } from "./EditorModal";
 import { useEffect, useState } from "react";
 import {
@@ -117,13 +118,13 @@ export default function App() {
           : r,
       ),
     }));
-  const remove = (kind: Editor["kind"], id: string) => {
-    if (
-      !window.confirm(
-        "Bu kaydı silmek istiyor musunuz? Tekrarlayan etkinliklerin tüm tekrarları silinir.",
-      )
-    )
-      return;
+  const remove = async (kind: Editor["kind"], id: string) => {
+    try {
+      if (!(await confirmDeletion())) return false;
+    } catch {
+      setError("Silme onayı açılamadı. Kaydınız korunuyor; tekrar deneyin.");
+      return false;
+    }
     update((d) => ({
       ...d,
       ...(kind === "event"
@@ -132,6 +133,7 @@ export default function App() {
           ? { tasks: d.tasks.filter((t) => t.id !== id) }
           : { routines: d.routines.filter((r) => r.id !== id) }),
     }));
+    return true;
   };
   function taskRow(t: Task) {
     return (
@@ -936,9 +938,9 @@ export default function App() {
           onClose={() => setEditor(null)}
           onDelete={
             editor.item?.id
-              ? () => {
-                  remove(editor.kind, editor.item!.id);
-                  setEditor(null);
+              ? async () => {
+                  if (await remove(editor.kind, editor.item!.id))
+                    setEditor(null);
                 }
               : undefined
           }
