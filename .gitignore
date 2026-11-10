@@ -164,3 +164,7 @@ test-results/
 *.db-*
 local-data/
 backups/
+
+# Tauri build output and generated permission schemas
+src-tauri/target/
+src-tauri/gen/schemas/
