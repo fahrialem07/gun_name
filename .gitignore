@@ -151,3 +151,16 @@ vite.config.ts.timestamp-*
 # Local verification artifacts
 playwright-report/
 test-results/
+
+# Private credentials and local user data
+*.pem
+*.key
+*.p12
+*.pfx
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.db
+*.db-*
+local-data/
+backups/
