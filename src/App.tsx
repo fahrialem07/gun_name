@@ -315,7 +315,7 @@ export default function App() {
           <span className="brand-mark">
             <Sun size={22} />
           </span>
-          GÜN<span className="brand-dot">•</span>
+          Günname<span className="brand-dot">•</span>
         </a>
         <div className="workspace-label">KİŞİSEL ALANIN</div>
         <nav>
@@ -353,7 +353,7 @@ export default function App() {
         <header className="topbar">
           <div>
             <span className="mobile-brand">
-              GÜN <Sun size={16} />
+              Günname <Sun size={16} />
             </span>
             <span className="breadcrumb">
               Kişisel alan <ChevronRight size={13} /> <b>{page}</b>
@@ -910,7 +910,7 @@ export default function App() {
         </main>
         <footer className="app-footer">
           <span>
-            GÜN <span>·</span> Hayatına biraz alan.
+            Günname <span>·</span> Hayatına biraz alan.
           </span>
           <span>
             <span className="online-dot" /> Verilerin bu cihazda saklanır

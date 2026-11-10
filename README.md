@@ -1,4 +1,6 @@
-# GÜN
+# Günname
+
+GitHub deposu: [fahrialem07/gun_name](https://github.com/fahrialem07/gun_name).
 
 Türkçe, sade ve yerel çalışan kişisel planlayıcı. React 19, TypeScript, Vite ve Tailwind CSS 4 ile geliştirildi. Sunucu, hesap veya ücretli servis gerektirmez.
 
@@ -29,7 +31,7 @@ npm run preview
 
 ## Veriler ve mimari
 
-`src/domain.ts` tarih, etkinlik, görev ve rutin modellerini ve tekrar/seri hesaplarını içerir. `src/storage.ts` içindeki `PlannerRepository` sözleşmesinin ilk uygulaması `localStorage` kullanır (`gun.planner.v1`). React arayüzü bu katman üzerinden çalışır; Tauri 2 / Capacitor için SQLite uygulaması bu sözleşmeyi izleyerek eklenebilir. Yerel tarih anahtarları UTC dönüşümü yapılmadan üretilir.
+`src/domain.ts` tarih, etkinlik, görev ve rutin modellerini ve tekrar/seri hesaplarını içerir. `src/storage.ts` içindeki `PlannerRepository` sözleşmesinin ilk uygulaması `localStorage` kullanır (`gun.planner.v1`). Uygulamanın önceki sürümündeki kayıtları korumak için bu dahili saklama anahtarı değiştirilmez. React arayüzü bu katman üzerinden çalışır; Tauri 2 / Capacitor için SQLite uygulaması bu sözleşmeyi izleyerek eklenebilir. Yerel tarih anahtarları UTC dönüşümü yapılmadan üretilir.
 
 Veriler **bu tarayıcı ve bu adres** için saklanır. Sayfa yenileme verileri silmez. Tarayıcı verilerini temizlemek siler; farklı port, cihaz ve tarayıcılar ayrı depolama kullanır. Senkronizasyon ve yedekleme henüz yoktur. Günlük şifrelenmez; paylaşılan cihazlarda tarayıcı profiline erişen kişiler okuyabilir. Depolama hataları kullanıcıya gösterilir. Okunamayan mevcut verinin üzerine otomatik yazılmaz.
 
